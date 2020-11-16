@@ -1,0 +1,114 @@
+*
+{
+    box-sizing: border-box;
+}
+
+html
+{
+    font-family: $font-main;
+    font-size: $font-size;
+
+    overflow-y: scroll;
+
+    letter-spacing: .1em;
+
+    color: $color-gray;
+}  
+
+/* подключено с mixins-media*/
+// @mixin lg-min {
+//     @media(min-width: $lg) {
+//         @content;
+//     }
+// }
+
+// @mixin lg-md {
+//     @media(max-width: $lg - 1) and (min-width: $md) {
+//         @content;
+//     }
+// }
+
+// @mixin md {
+//     @media(max-width: $md - 1) {
+//         @content;
+//     }
+// }
+
+
+h1
+{
+    font-family: $font-header;
+    font-weight: 300;
+    line-height: 1.2em;
+
+    text-align: center;
+    letter-spacing: .08em;
+    // font-size: 3.75rem;
+
+    @include lg-min
+    {
+        font-size: 3.75rem;
+    };
+    @include lg-md
+    {
+        font-size: 2.5rem;
+    };
+    @include md
+    {
+        font-size: 1.875rem;
+    };
+
+
+    /* добавить доконца width */
+    // @media(max-width: 576) {
+    //     font-size: 2.5rem;
+    // }
+}      
+a
+{
+    text-decoration: none;
+
+    color: $color-light;
+}      
+
+.btn-accent,
+.btn
+{
+    display: block;
+
+    transition: background-color .5s, border-color .5s;
+    text-align: center;
+    letter-spacing: .1em;
+
+    border: 2px solid $color-light;
+    background-color: rgba($color-light, .1);
+
+    @include lg-min
+    {
+        font-size: 1.125rem;
+
+        min-width: 250px;
+        height: 60px;
+        padding: 18px $gap;
+    }
+    @include lg-md
+    {
+        min-width: 200px;
+        height: 50px;
+        padding: 14px $gap;
+    }
+    @include md
+    {
+        min-width: 170px;
+        height: 40px;
+        padding: 10px $gap;
+    }
+}
+
+.btn-accent:focus,
+.btn-accent:hover,
+.btn:focus,
+.btn:hover
+{
+    background-color: $color-accent;
+}
